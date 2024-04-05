@@ -3,6 +3,8 @@ import requests
 
 BASE_URL = "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_{}.zip"
 YEARS = range(1995, 2022+1)
+SAVE_PATH = os.path.join(os.path.dirname(__file__), "data")
+UNZIP = True
 
 for year in YEARS:
   print("Downloading data for year {}".format(year))
@@ -15,7 +17,7 @@ for year in YEARS:
     print("Unzipping file")
     os.system(f"unzip {SAVE_PATH}/{year}.zip -d {SAVE_PATH}/{year}")
 
-    csvs_path = f"{SAVE_PATH}/{year}/*/dados/*.CSV"
+    csvs_path = f"{SAVE_PATH}/{year}/*/data/*.CSV"
     os.system(f"mv {csvs_path} {SAVE_PATH}")
 
     # Delete the zip file

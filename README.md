@@ -73,9 +73,9 @@ docker compose up --build
 ## 1. Downloading data
 Let's write a script for downloading data from the [Microdados do Censo da Educação Superior](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-da-educacao-superior) (Brazilian Higher Education Census).
 
-The Education Census data webpage contains links for data from 1995 to 2022. All download links follow the format `https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_{year}.zip`. Let's set this as the base URL and create a list of years from 1995 to 2022 inclusive. We'll also import the os and requests modules
+The Education Census data webpage contains links for data from 1995 to 2022. All download links follow the format `http://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_{year}.zip`. Let's set this as the base URL and create a list of years from 1995 to 2022 inclusive. We'll also import the os and requests modules
 ```python
-BASE_URL = "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_{}.zip"
+BASE_URL = "http://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_{}.zip"
 YEARS = range(1995, 2022+1)
 ```
 Then let's set the directory where we want to download the zip files. We'll also set a boolean so we can choose whether to unzip the files our not.
